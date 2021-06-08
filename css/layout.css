@@ -1,0 +1,27 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  height: 100%;
+}
+
+.col-one-third {
+  width: 33%;
+}
+
+.col-two-thirds {
+  width: 66%;
+}
+
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-full {
+  width: 100%;
+}
