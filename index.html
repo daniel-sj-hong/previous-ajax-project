@@ -1,67 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AJAX Project</title>
-  <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-one-third">
-          <div class="row center-all">
-            <img src="images/poke-ball.png">
-          </div>
-        </div>
-        <div class="col-two-thirds">
-          <div class="row center-all">
-            <img src="images/header.png">
-          </div>
-        </div>
-        <div class="col-one-third">
-          <div class="row center-all">
-            <img src="images/poke-ball-flipped.png">
-          </div>
-        </div>
-      </div>
-    </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Project</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="sub-main-container">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-full center-all">
-          <button class="margin-bottom-100">Call your Eevee!</button>
-        </div>
-      </div>
-    </div>
+        <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-10">
+                <div class="row center-all">
+                  <img src="images/poke-ball.png">
+                </div>
+              </div>
+              <div class="col-80">
+                <div class="row center-all">
+                  <img class="reduction" src="images/header.png">
+                </div>
+              </div>
+              <div class="col-10">
+                <div class="row center-all">
+                  <img src="images/poke-ball-flipped.png">
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-one-third">
+        <main class="center-all">
+        <!-- ************************************************************ -->
+        <div class="container">
+          <div class="row">
+            <div class="col-full">
+              <div class="row center-all">
+                <h2>Name your Eevee!</h2>
+              </div>
+            </div>
+          </div>
           <div class="row center-all">
-            <img class="margin-bottom-40" src="images/fire-stone.png">
+            <input class="submission-field" type="text">
+          </div>
+          <div class="row center-all">
+            <button class="submit-button" type="submit">Submit</button>
+          </div>
+          <div class="row center-all">
+            <img class="eevee" src="images/1.png">
           </div>
         </div>
-        <div class="col-one-third">
-          <div class="row center-all">
-            <img class="margin-bottom-40" src="images/thunder-stone.png">
+        <!-- ************************************************************ -->
+        <div class="container hidden">
+          <div class="row">
+            <div class="col-full">
+              <div class="row center-all">
+                <button class="call-button">Call your Eevee!</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-one-third">
-          <div class="row center-all">
-            <img class="margin-bottom-40" src="images/water-stone.png">
+      </main>
+        <!-- ************************************************************ -->
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-one-third">
+              <div class="row center-all">
+                <img class="stone" src="images/fire-stone.png">
+              </div>
+            </div>
+            <div class="col-one-third">
+              <div class="row center-all">
+                <img class="stone" src="images/thunder-stone.png">
+              </div>
+            </div>
+            <div class="col-one-third">
+              <div class="row center-all">
+                <img class="stone" src="images/water-stone.png">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </footer>
     </div>
-  </header>
-  <main>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+  </div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+  </html>

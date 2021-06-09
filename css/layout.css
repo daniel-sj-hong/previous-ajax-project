@@ -1,8 +1,28 @@
-.container {
-  max-width: 900px;
-  margin: auto;
+.main-container {
+  width: 600px;
+}
+
+body {
+  width: 100vw;
+  height: 100%;
   background-color: #ede6db;
-  max-height: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  width: 100%;
+}
+
+main {
+  /* margin-top: 500px; */
+  width: 100%;
+  height: 70vh;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
 }
 
 .row {
@@ -10,20 +30,16 @@
   height: 100%;
 }
 
-.col-one-third {
-  width: 33%;
+.col-10 {
+  width: 10%;
 }
 
-.col-two-thirds {
-  width: 66%;
+.col-80 {
+  width: 80%;
 }
 
-.margin-bottom-100 {
-  margin-bottom: 100px;
-}
-
-.margin-bottom-40 {
-  margin-bottom: 40px;
+.col-full {
+  width: 100%;
 }
 
 .center-all {
@@ -32,7 +48,24 @@
   align-items: center;
 }
 
-.col-full {
+.sub-main-container {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .margin-top-40 {
+  margin-top: 40px;
+} */
+
+.reduction {
   width: 100%;
-  height: 400px;
+}
+
+.col-one-third {
+  width: 33%;
+}
+
+.stone {
+  height: 5vh;
 }
