@@ -1,6 +1,8 @@
 .container {
   max-width: 900px;
   margin: auto;
+  background-color: #ede6db;
+  max-height: 900px;
 }
 
 .row {
@@ -16,6 +18,14 @@
   width: 66%;
 }
 
+.margin-bottom-100 {
+  margin-bottom: 100px;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
+}
+
 .center-all {
   display: flex;
   justify-content: center;
@@ -24,4 +34,5 @@
 
 .col-full {
   width: 100%;
+  height: 400px;
 }
