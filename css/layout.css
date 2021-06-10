@@ -66,6 +66,14 @@ main {
   width: 33%;
 }
 
-.stone {
+.fire-stone {
+  height: 5vh;
+}
+
+.thunder-stone {
+  height: 5vh;
+}
+
+.water-stone {
   height: 5vh;
 }
