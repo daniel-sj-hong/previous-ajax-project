@@ -1,7 +1,9 @@
 var $callButton = document.querySelector('.call-button');
 var $eevee = document.querySelector('.eevee');
-var $stones = document.querySelectorAll('.stone');
-var $container = document.querySelectorAll('.container');
+// var $fireStone = document.querySelector('.fire-stone');
+// var $waterStone = document.querySelector('.water-stone');
+// var $thunderStone = document.querySelector('.thunder-stone');
+var $views = document.querySelectorAll('.view');
 
 $callButton.addEventListener('click', handleClick);
 
@@ -16,11 +18,12 @@ function getPokemonData(name) {
 }
 
 function getStones(name) {
+  var $stoneImg = document.querySelector('.' + name);
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/item/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    $stones.setAttribute('src', xhr.response.sprites.default);
+    $stoneImg.setAttribute('src', xhr.response.sprites.default);
   });
   xhr.send();
 }
@@ -35,11 +38,11 @@ function handleClick(event) {
     return;
   }
   var dataValue = event.target.getAttribute('data-view');
-  for (var i = 0; i < $container.length; i++) {
-    if ($container[i].getAttribute('data-view') !== dataValue) {
-      $container[i].className = 'container hidden';
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') !== dataValue) {
+      $views[i].className = 'container hidden';
     } else {
-      $container[i].className = 'container';
+      $views[i].className = 'container';
     }
   }
 }
