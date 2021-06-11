@@ -1,0 +1,75 @@
+.main-container {
+  width: 600px;
+}
+
+body {
+  width: 100vw;
+  height: 100%;
+  background-color: #ede6db;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  width: 100%;
+}
+
+main {
+  /* margin-top: 500px; */
+  width: 100%;
+  height: 70vh;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  height: 100%;
+}
+
+.col-10 {
+  width: 10%;
+}
+
+.col-80 {
+  width: 80%;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-main-container {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reduction {
+  width: 100%;
+}
+
+.col-one-third {
+  width: 33%;
+}
+
+.fire-stone {
+  height: 5vh;
+}
+
+.thunder-stone {
+  height: 5vh;
+}
+
+.water-stone {
+  height: 5vh;
+}
