@@ -18,8 +18,12 @@
   color: white;
   font-size: 20px;
   padding: 8px 30px;
-  margin-left: 180px;
   margin-top: 10px;
+}
+
+.text-right {
+  text-align: right;
+  width: 50%;
 }
 
 .submit-button:hover {
