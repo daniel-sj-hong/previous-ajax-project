@@ -1,6 +1,6 @@
 /* exported data */
 var data = {
-
+  nickname: ''
 };
 
 window.addEventListener('beforeunload', handleJSON);

@@ -1,11 +1,11 @@
 var $callButton = document.querySelector('.call-button');
 var $eevee = document.querySelector('.eevee');
-// var $fireStone = document.querySelector('.fire-stone');
-// var $waterStone = document.querySelector('.water-stone');
-// var $thunderStone = document.querySelector('.thunder-stone');
 var $views = document.querySelectorAll('.view');
+var $submitInput = document.querySelector('.submit-button');
+var $form = document.querySelector('.form');
 
 $callButton.addEventListener('click', handleClick);
+$form.addEventListener('submit', handleSubmit);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
@@ -17,21 +17,27 @@ function getPokemonData(name) {
   xhr.send();
 }
 
-function getStones(name) {
-  var $stoneImg = document.querySelector('.' + name);
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://pokeapi.co/api/v2/item/' + name);
-  xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {
-    $stoneImg.setAttribute('src', xhr.response.sprites.default);
-  });
-  xhr.send();
-}
+// function getStones(name) {
+//   var $stoneImg = document.querySelector('.' + name);
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET', 'https://pokeapi.co/api/v2/item/' + name);
+//   xhr.responseType = 'json';
+//   xhr.addEventListener('load', function () {
+//     $stoneImg.setAttribute('src', xhr.response.sprites.default);
+//   });
+//   xhr.send();
+// }
 
 getPokemonData('eevee');
-getStones('fire-stone');
-getStones('water-stone');
-getStones('thunder-stone');
+// getStones('fire-stone');
+// getStones('water-stone');
+// getStones('thunder-stone');
+
+function handleSubmit(event) {
+  // if (event.target.value )
+  event.preventDefault();
+  data.nickname = $form.nickname.value;
+}
 
 function handleClick(event) {
   if (!event.target.matches('.call-button')) {
