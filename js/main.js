@@ -9,12 +9,18 @@ var $waterStone = document.querySelector('.water-stone');
 var $thunderStone = document.querySelector('.thunder-stone');
 var $stoneSelection = document.querySelector('.stone-selection');
 var $evolutionText = document.querySelector('.evolution-text');
+var $nightButton = document.querySelector('.night-button');
+var $body = document.querySelector('body');
+var $nightTime = document.querySelector('.night-time');
+var $nightContainer = document.querySelector('.night-container');
+var $dayContainer = document.querySelector('.day-container');
 
-$callButton.addEventListener('click', handleClick);
+$callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
 $fireStone.addEventListener('click', handleEvolution);
 $waterStone.addEventListener('click', handleEvolution);
 $thunderStone.addEventListener('click', handleEvolution);
+$nightButton.addEventListener('click', nightTime);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
@@ -37,6 +43,13 @@ function getStones(name) {
   xhr.send();
 }
 
+function nightTime(event) {
+  if (event.target.matches('.night-button')) {
+    $body.className = 'night';
+    $nightTime.className = 'hidden';
+  }
+}
+
 function handleEvolution(event) {
   if (event.target.matches('.fire-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
@@ -54,6 +67,7 @@ function handleEvolution(event) {
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
   }
   $displayNickname.className = 'hidden';
+  $nightContainer.className = 'hidden';
 }
 
 function handleSubmit(event) {
@@ -68,9 +82,10 @@ function handleSubmit(event) {
   $form.className = 'form hidden';
   var pickStone = 'Pick one of the stones below!';
   $displayStoneText.textContent = pickStone;
+  $nightContainer.className = 'night-container';
 }
 
-function handleClick(event) {
+function handleCall(event) {
   if (!event.target.matches('.call-button')) {
     return;
   }
@@ -83,4 +98,6 @@ function handleClick(event) {
       $views[i].className = 'container';
     }
   }
+  $nightContainer.className = 'hidden';
+  $dayContainer.className = 'hidden';
 }
