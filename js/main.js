@@ -15,6 +15,7 @@ var $nightHeartContainer = document.querySelector('.night-heart-container');
 var $dayContainer = document.querySelector('.day-container');
 var $dayButton = document.querySelector('.day-button');
 var $moon = document.querySelector('.moon');
+var $heart = document.querySelector('.heart');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
