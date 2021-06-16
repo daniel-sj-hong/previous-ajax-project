@@ -11,9 +11,9 @@ var $stoneSelection = document.querySelector('.stone-selection');
 var $evolutionText = document.querySelector('.evolution-text');
 var $nightButton = document.querySelector('.night-button');
 var $body = document.querySelector('body');
-var $nightTime = document.querySelector('.night-time');
 var $nightContainer = document.querySelector('.night-container');
 var $dayContainer = document.querySelector('.day-container');
+var $dayButton = document.querySelector('.day-button');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
@@ -21,6 +21,7 @@ $fireStone.addEventListener('click', handleEvolution);
 $waterStone.addEventListener('click', handleEvolution);
 $thunderStone.addEventListener('click', handleEvolution);
 $nightButton.addEventListener('click', nightTime);
+$dayButton.addEventListener('click', dayTime);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
@@ -46,7 +47,16 @@ function getStones(name) {
 function nightTime(event) {
   if (event.target.matches('.night-button')) {
     $body.className = 'night';
-    $nightTime.className = 'hidden';
+    $nightContainer.className = 'hidden';
+    $dayContainer.className = 'day-container';
+  }
+}
+
+function dayTime(event) {
+  if (event.target.matches('.day-button')) {
+    $dayContainer.className = 'hidden';
+    $body.className = '';
+    $nightContainer.className = 'night-container';
   }
 }
 
