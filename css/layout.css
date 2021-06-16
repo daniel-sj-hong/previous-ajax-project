@@ -87,9 +87,8 @@ main {
   margin-right: 50px;
 }
 
-.night-button {
-  margin-right: 75px;
-  margin-bottom: 70px;
+.col-half {
+  width: 33%;
 }
 
 .day-time {
@@ -99,4 +98,12 @@ main {
 .day-button {
   margin-right: 75px;
   margin-bottom: 70px;
+}
+
+.margin-right-40 {
+  margin-right: 40px;
+}
+
+.margin-right-15 {
+  margin-right: 15px;
 }

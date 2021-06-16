@@ -85,3 +85,8 @@ input {
 .day-button:hover {
   cursor: pointer;
 }
+
+.heart {
+  height: 50px;
+  width: 50px;
+}

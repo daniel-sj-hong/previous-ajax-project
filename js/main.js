@@ -11,7 +11,7 @@ var $stoneSelection = document.querySelector('.stone-selection');
 var $evolutionText = document.querySelector('.evolution-text');
 var $nightButton = document.querySelector('.night-button');
 var $body = document.querySelector('body');
-var $nightContainer = document.querySelector('.night-container');
+var $nightHeartContainer = document.querySelector('.night-heart-container');
 var $dayContainer = document.querySelector('.day-container');
 var $dayButton = document.querySelector('.day-button');
 var $moon = document.querySelector('.moon');
@@ -47,7 +47,7 @@ function getStones(name) {
 
 function nightTime(event) {
   $body.className = 'night';
-  $nightContainer.className = 'hidden';
+  $nightHeartContainer.className = 'hidden';
   $dayContainer.className = 'day-container';
   $moon.className = 'moon';
 }
@@ -55,7 +55,7 @@ function nightTime(event) {
 function dayTime(event) {
   $dayContainer.className = 'hidden';
   $body.className = '';
-  $nightContainer.className = 'night-container';
+  $nightHeartContainer.className = 'night-heart-container';
   $moon.className = 'hidden';
 }
 
@@ -76,7 +76,7 @@ function handleEvolution(event) {
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
   }
   $displayNickname.className = 'hidden';
-  $nightContainer.className = 'hidden';
+  $nightHeartContainer.className = 'hidden';
   $dayContainer.className = 'hidden';
 }
 
@@ -92,7 +92,7 @@ function handleSubmit(event) {
   $form.className = 'form hidden';
   var pickStone = 'Pick one of the stones below!';
   $displayStoneText.textContent = pickStone;
-  $nightContainer.className = 'night-container';
+  $nightHeartContainer.className = 'night-heart-container';
 }
 
 function handleCall(event) {
@@ -108,7 +108,7 @@ function handleCall(event) {
       $views[i].className = 'container';
     }
   }
-  $nightContainer.className = 'hidden';
+  $nightHeartContainer.className = 'hidden';
   $dayContainer.className = 'hidden';
   $moon.className = 'hidden';
 }
