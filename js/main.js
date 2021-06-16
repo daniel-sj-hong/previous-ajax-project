@@ -24,6 +24,7 @@ $waterStone.addEventListener('click', handleEvolution);
 $thunderStone.addEventListener('click', handleEvolution);
 $nightButton.addEventListener('click', nightTime);
 $dayButton.addEventListener('click', dayTime);
+$heart.addEventListener('click', friendship);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
