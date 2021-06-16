@@ -14,6 +14,7 @@ var $body = document.querySelector('body');
 var $nightContainer = document.querySelector('.night-container');
 var $dayContainer = document.querySelector('.day-container');
 var $dayButton = document.querySelector('.day-button');
+var $moon = document.querySelector('.moon');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
@@ -49,6 +50,7 @@ function nightTime(event) {
     $body.className = 'night';
     $nightContainer.className = 'hidden';
     $dayContainer.className = 'day-container';
+    $moon.className = 'moon';
   }
 }
 
@@ -57,6 +59,7 @@ function dayTime(event) {
     $dayContainer.className = 'hidden';
     $body.className = '';
     $nightContainer.className = 'night-container';
+    $moon.className = 'hidden';
   }
 }
 
@@ -78,6 +81,7 @@ function handleEvolution(event) {
   }
   $displayNickname.className = 'hidden';
   $nightContainer.className = 'hidden';
+  $dayContainer.className = 'hidden';
 }
 
 function handleSubmit(event) {
@@ -110,4 +114,5 @@ function handleCall(event) {
   }
   $nightContainer.className = 'hidden';
   $dayContainer.className = 'hidden';
+  $moon.className = 'hidden';
 }
