@@ -46,21 +46,17 @@ function getStones(name) {
 }
 
 function nightTime(event) {
-  if (event.target.matches('.night-button')) {
-    $body.className = 'night';
-    $nightContainer.className = 'hidden';
-    $dayContainer.className = 'day-container';
-    $moon.className = 'moon';
-  }
+  $body.className = 'night';
+  $nightContainer.className = 'hidden';
+  $dayContainer.className = 'day-container';
+  $moon.className = 'moon';
 }
 
 function dayTime(event) {
-  if (event.target.matches('.day-button')) {
-    $dayContainer.className = 'hidden';
-    $body.className = '';
-    $nightContainer.className = 'night-container';
-    $moon.className = 'hidden';
-  }
+  $dayContainer.className = 'hidden';
+  $body.className = '';
+  $nightContainer.className = 'night-container';
+  $moon.className = 'hidden';
 }
 
 function handleEvolution(event) {
