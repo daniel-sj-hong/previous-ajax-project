@@ -10,6 +10,11 @@ body {
   justify-content: center;
 }
 
+.night {
+  background-color: black;
+  color: white;
+}
+
 footer {
   width: 100%;
 }
@@ -71,4 +76,27 @@ main {
 
 .water-stone {
   height: 5vh;
+}
+
+.justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.night-time {
+  margin-right: 50px;
+}
+
+.night-button {
+  margin-right: 75px;
+  margin-bottom: 70px;
+}
+
+.day-time {
+  margin-right: 50px;
+}
+
+.day-button {
+  margin-right: 75px;
+  margin-bottom: 70px;
 }
