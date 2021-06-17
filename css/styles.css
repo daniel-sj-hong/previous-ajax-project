@@ -90,3 +90,15 @@ input {
 .heart:hover {
   cursor: pointer;
 }
+
+.fire-stone:hover {
+  cursor: pointer;
+}
+
+.thunder-stone:hover {
+  cursor: pointer;
+}
+
+.water-stone:hover {
+  cursor: pointer;
+}

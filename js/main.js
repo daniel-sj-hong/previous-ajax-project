@@ -16,6 +16,7 @@ var isNight = false;
 var $time = document.querySelector('.time');
 var $heartContainer = document.querySelector('.heart-container');
 var $timeButton = document.querySelector('.time-button');
+var $sun = document.querySelector('.sun');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
@@ -63,12 +64,13 @@ function nightTime(event) {
 }
 
 function friendship(event) {
-  if (event.target.matches('.heart')) {
+  if (isNight === false) {
     var espeon = getPokemonData('espeon');
     $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
+    $sun.className = 'sun';
   }
   if (isNight === true) {
     var umbreon = getPokemonData('umbreon');
