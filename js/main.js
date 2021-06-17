@@ -9,21 +9,20 @@ var $waterStone = document.querySelector('.water-stone');
 var $thunderStone = document.querySelector('.thunder-stone');
 var $stoneSelection = document.querySelector('.stone-selection');
 var $evolutionText = document.querySelector('.evolution-text');
-var $nightButton = document.querySelector('.night-button');
 var $body = document.querySelector('body');
-var $nightHeartContainer = document.querySelector('.night-heart-container');
-var $dayContainer = document.querySelector('.day-container');
-var $dayButton = document.querySelector('.day-button');
 var $moon = document.querySelector('.moon');
 var $heart = document.querySelector('.heart');
+var isNight = false;
+var $time = document.querySelector('.time');
+var $heartContainer = document.querySelector('.heart-container');
+var $timeButton = document.querySelector('.time-button');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
 $fireStone.addEventListener('click', handleEvolution);
 $waterStone.addEventListener('click', handleEvolution);
 $thunderStone.addEventListener('click', handleEvolution);
-$nightButton.addEventListener('click', nightTime);
-$dayButton.addEventListener('click', dayTime);
+$timeButton.addEventListener('click', nightTime);
 $heart.addEventListener('click', friendship);
 
 function getPokemonData(name) {
@@ -48,17 +47,36 @@ function getStones(name) {
 }
 
 function nightTime(event) {
-  $body.className = 'night';
-  $nightHeartContainer.className = 'hidden';
-  $dayContainer.className = 'day-container';
-  $moon.className = 'moon';
+  if (!isNight) {
+    $body.className = 'night';
+    $time.textContent = 'Day Time';
+    $moon.className = 'moon';
+    $timeButton.className = 'day-button time-button';
+    isNight = true;
+  } else {
+    $time.textContent = 'Night Time';
+    $body.className = '';
+    $moon.className = 'hidden';
+    $timeButton.className = 'night-button time-button';
+    isNight = false;
+  }
 }
 
-function dayTime(event) {
-  $dayContainer.className = 'hidden';
-  $body.className = '';
-  $nightHeartContainer.className = 'night-heart-container';
-  $moon.className = 'hidden';
+function friendship(event) {
+  if (event.target.matches('.heart')) {
+    var espeon = getPokemonData('espeon');
+    $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
+    $displayNickname.className = 'hidden';
+    $heartContainer.className = 'hidden';
+    $stoneSelection.className = 'evolution-view hidden';
+  }
+  if (isNight === true) {
+    var umbreon = getPokemonData('umbreon');
+    $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
+    $displayNickname.className = 'hidden';
+    $heartContainer.className = 'hidden';
+    $stoneSelection.className = 'evolution-view hidden';
+  }
 }
 
 function handleEvolution(event) {
@@ -78,8 +96,8 @@ function handleEvolution(event) {
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
   }
   $displayNickname.className = 'hidden';
-  $nightHeartContainer.className = 'hidden';
-  $dayContainer.className = 'hidden';
+  $heartContainer.className = 'hidden';
+  // $dayHeartContainer.className = 'hidden';
 }
 
 function handleSubmit(event) {
@@ -94,7 +112,8 @@ function handleSubmit(event) {
   $form.className = 'form hidden';
   var pickStone = 'Pick one of the stones below!';
   $displayStoneText.textContent = pickStone;
-  $nightHeartContainer.className = 'night-heart-container';
+  $heartContainer.className = 'night-heart-container';
+  $heartContainer.className = 'heart-container';
 }
 
 function handleCall(event) {
@@ -110,7 +129,6 @@ function handleCall(event) {
       $views[i].className = 'container';
     }
   }
-  $nightHeartContainer.className = 'hidden';
-  $dayContainer.className = 'hidden';
+  $heartContainer.className = 'hidden';
   $moon.className = 'hidden';
 }
