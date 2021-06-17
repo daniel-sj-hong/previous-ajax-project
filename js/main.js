@@ -99,7 +99,6 @@ function handleEvolution(event) {
   }
   $displayNickname.className = 'hidden';
   $heartContainer.className = 'hidden';
-  // $dayHeartContainer.className = 'hidden';
 }
 
 function handleSubmit(event) {
