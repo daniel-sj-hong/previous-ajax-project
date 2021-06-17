@@ -24,6 +24,7 @@
   font-size: 20px;
   padding: 8px 30px;
   margin-top: 10px;
+  margin-left: 8rem;
 }
 
 .text-right {
@@ -62,26 +63,42 @@ input {
   display: none;
 }
 
-.night-button {
+.time-button {
   border-radius: 50%;
   height: 20px;
   width: 20px;
   border: none;
+}
+
+.night-button {
   background-color: black;
 }
 
-.night-button:hover {
-  cursor: pointer;
-}
-
 .day-button {
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  border: none;
   background-color: white;
 }
 
-.day-button:hover {
+.time-button:hover {
+  cursor: pointer;
+}
+
+.heart {
+  height: 50px;
+  width: 50px;
+}
+
+.heart:hover {
+  cursor: pointer;
+}
+
+.fire-stone:hover {
+  cursor: pointer;
+}
+
+.thunder-stone:hover {
+  cursor: pointer;
+}
+
+.water-stone:hover {
   cursor: pointer;
 }
