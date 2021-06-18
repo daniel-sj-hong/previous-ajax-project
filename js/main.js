@@ -153,6 +153,7 @@ function handleSubmit(event) {
   $time.textContent = 'Night Time';
   $timeButton.className = 'night time-button';
   isNight = false;
+  $displayNickname.className = 'center-all display-nickname';
 }
 
 function handleCall(event) {
