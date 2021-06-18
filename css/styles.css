@@ -111,3 +111,7 @@ input {
   font-size: 20px;
   padding: 8px 80px;
 }
+
+.yes-button:hover {
+  cursor: pointer;
+}
