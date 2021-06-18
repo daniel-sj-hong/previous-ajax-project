@@ -102,3 +102,12 @@ input {
 .water-stone:hover {
   cursor: pointer;
 }
+
+.yes-button {
+  border-radius: 5px;
+  background-color: #1484d6;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 8px 80px;
+}

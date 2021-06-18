@@ -17,6 +17,8 @@ var $time = document.querySelector('.time');
 var $heartContainer = document.querySelector('.heart-container');
 var $timeButton = document.querySelector('.time-button');
 var $sun = document.querySelector('.sun');
+var $goAgain = document.querySelector('.go-again');
+var $yesButton = document.querySelector('.yes-button');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
@@ -71,13 +73,16 @@ function friendship(event) {
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
     $sun.className = 'sun';
+    $goAgain.textContent = 'Do you want to evolve another Eevee?';
+    $yesButton.className = 'yes-button';
   }
   if (isNight === true) {
     var umbreon = getPokemonData('umbreon');
-    $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
+    $evolutionText.textContent = data.nickname + ' evolved into Umbreon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
+    $goAgain.textContent = 'Do you want to evolve another Eevee?';
   }
 }
 
@@ -86,16 +91,19 @@ function handleEvolution(event) {
     $stoneSelection.className = 'evolution-view hidden';
     var flareon = getPokemonData('flareon');
     $evolutionText.textContent = data.nickname + ' evolved into Flareon!';
+    $goAgain.textContent = 'Do you want to evolve another Eevee?';
   }
   if (event.target.matches('.water-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
     var vaporeon = getPokemonData('vaporeon');
     $evolutionText.textContent = data.nickname + ' evolved into Vaporeon!';
+    $goAgain.textContent = 'Do you want to evolve another Eevee?';
   }
   if (event.target.matches('.thunder-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
     var jolteon = getPokemonData('jolteon');
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
+    $goAgain.textContent = 'Do you want to evolve another Eevee?';
   }
   $displayNickname.className = 'hidden';
   $heartContainer.className = 'hidden';
@@ -111,7 +119,7 @@ function handleSubmit(event) {
   var nickname = 'Say hello to ' + data.nickname + '!';
   $displayNickname.textContent = nickname;
   $form.className = 'form hidden';
-  var pickStone = 'Pick one of the stones below!';
+  var pickStone = 'Pick a stone below or the heart above!';
   $displayStoneText.textContent = pickStone;
   $heartContainer.className = 'night-heart-container';
   $heartContainer.className = 'heart-container';
