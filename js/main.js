@@ -34,7 +34,8 @@ function getPokemonData(name) {
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    $eevee.setAttribute('src', xhr.response.sprites.front_default);
+    data.images[name] = xhr.response.sprites.front_default;
+    $eevee.setAttribute('src', data.images[name]);
   });
   xhr.send();
 }
@@ -69,7 +70,7 @@ function nightTime(event) {
 function newEevee(event) {
   $form.className = 'form';
   getPokemonData('eevee');
-  isNight === false;
+  isNight = false;
   $body.className = '';
   $moon.className = 'hidden';
   $evolutionText.className = 'hidden';
@@ -80,57 +81,69 @@ function newEevee(event) {
 
 function friendship(event) {
   if (isNight === false) {
-    var espeon = getPokemonData('espeon');
+    if (data.images.espeon) {
+      $eevee.setAttribute('src', data.images.espeon);
+    } else {
+      getPokemonData('espeon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
     $sun.className = 'sun';
-    $goAgain.textContent = 'Do you want to evolve another Eevee?';
-    $yesButton.className = 'yes-button';
-    $evolutionText.className = 'evolution-text center-all';
-    $goAgain.className = 'go-again center-all';
+    oneMoreTime();
   }
   if (isNight === true) {
-    var umbreon = getPokemonData('umbreon');
+    if (data.images.umbreon) {
+      $eevee.setAttribute('src', data.images.umbreon);
+    } else {
+      getPokemonData('umbreon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Umbreon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
-    $goAgain.textContent = 'Do you want to evolve another Eevee?';
-    $yesButton.className = 'yes-button';
-    $evolutionText.className = 'evolution-text center-all';
-    $goAgain.className = 'go-again center-all';
+    oneMoreTime();
   }
+}
+
+function oneMoreTime() {
+  $goAgain.textContent = 'Do you want to evolve another Eevee?';
+  $yesButton.className = 'yes-button';
+  $evolutionText.className = 'evolution-text center-all';
+  $goAgain.className = 'go-again center-all';
 }
 
 function handleEvolution(event) {
   if (event.target.matches('.fire-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var flareon = getPokemonData('flareon');
+    if (data.images.flareon) {
+      $eevee.setAttribute('src', data.images.flareon);
+    } else {
+      getPokemonData('flareon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Flareon!';
-    $goAgain.textContent = 'Do you want to evolve another Eevee?';
-    $yesButton.className = 'yes-button';
-    $evolutionText.className = 'evolution-text center-all';
-    $goAgain.className = 'go-again center-all';
+    oneMoreTime();
   }
   if (event.target.matches('.water-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var vaporeon = getPokemonData('vaporeon');
+    if (data.images.vaporeon) {
+      $eevee.setAttribute('src', data.images.vaporeon);
+    } else {
+      getPokemonData('vaporeon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Vaporeon!';
-    $goAgain.textContent = 'Do you want to evolve another Eevee?';
-    $yesButton.className = 'yes-button';
-    $evolutionText.className = 'evolution-text center-all';
-    $goAgain.className = 'go-again center-all';
+    oneMoreTime();
   }
   if (event.target.matches('.thunder-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var jolteon = getPokemonData('jolteon');
+    if (data.images.jolteon) {
+      $eevee.setAttribute('src', data.images.jolteon);
+    } else {
+      getPokemonData('jolteon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
-    $goAgain.textContent = 'Do you want to evolve another Eevee?';
-    $yesButton.className = 'yes-button';
-    $evolutionText.className = 'evolution-text center-all';
-    $goAgain.className = 'go-again center-all';
+    oneMoreTime();
   }
   $displayNickname.className = 'hidden';
   $heartContainer.className = 'hidden';
@@ -138,7 +151,7 @@ function handleEvolution(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  data.nickname = $form.nickname.value;
+  data.nickname = $form.elements.nickname.value;
   getStones('fire-stone');
   getStones('water-stone');
   getStones('thunder-stone');
