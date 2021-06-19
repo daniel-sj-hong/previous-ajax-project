@@ -69,7 +69,11 @@ function nightTime(event) {
 
 function newEevee(event) {
   $form.className = 'form';
-  getPokemonData('eevee');
+  if (data.images.eevee) {
+    $eevee.setAttribute('src', data.images.eevee);
+  } else {
+    getPokemonData('eevee');
+  }
   isNight = false;
   $body.className = '';
   $moon.className = 'hidden';
