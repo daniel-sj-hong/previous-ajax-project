@@ -17,6 +17,8 @@ var $time = document.querySelector('.time');
 var $heartContainer = document.querySelector('.heart-container');
 var $timeButton = document.querySelector('.time-button');
 var $sun = document.querySelector('.sun');
+var $goAgain = document.querySelector('.go-again');
+var $yesButton = document.querySelector('.yes-button');
 
 $callButton.addEventListener('click', handleCall);
 $form.addEventListener('submit', handleSubmit);
@@ -25,13 +27,15 @@ $waterStone.addEventListener('click', handleEvolution);
 $thunderStone.addEventListener('click', handleEvolution);
 $timeButton.addEventListener('click', nightTime);
 $heart.addEventListener('click', friendship);
+$yesButton.addEventListener('click', newEevee);
 
 function getPokemonData(name) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + name);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    $eevee.setAttribute('src', xhr.response.sprites.front_default);
+    data.images[name] = xhr.response.sprites.front_default;
+    $eevee.setAttribute('src', data.images[name]);
   });
   xhr.send();
 }
@@ -63,39 +67,87 @@ function nightTime(event) {
   }
 }
 
+function newEevee(event) {
+  $form.className = 'form';
+  if (data.images.eevee) {
+    $eevee.setAttribute('src', data.images.eevee);
+  } else {
+    getPokemonData('eevee');
+  }
+  isNight = false;
+  $body.className = '';
+  $moon.className = 'hidden';
+  $evolutionText.className = 'hidden';
+  $sun.className = 'hidden';
+  $goAgain.className = 'hidden';
+  $yesButton.className = 'hidden';
+}
+
 function friendship(event) {
   if (isNight === false) {
-    var espeon = getPokemonData('espeon');
+    if (data.images.espeon) {
+      $eevee.setAttribute('src', data.images.espeon);
+    } else {
+      getPokemonData('espeon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
     $sun.className = 'sun';
+    oneMoreTime();
   }
   if (isNight === true) {
-    var umbreon = getPokemonData('umbreon');
-    $evolutionText.textContent = data.nickname + ' evolved into Espeon!';
+    if (data.images.umbreon) {
+      $eevee.setAttribute('src', data.images.umbreon);
+    } else {
+      getPokemonData('umbreon');
+    }
+    $evolutionText.textContent = data.nickname + ' evolved into Umbreon!';
     $displayNickname.className = 'hidden';
     $heartContainer.className = 'hidden';
     $stoneSelection.className = 'evolution-view hidden';
+    oneMoreTime();
   }
+}
+
+function oneMoreTime() {
+  $goAgain.textContent = 'Do you want to evolve another Eevee?';
+  $yesButton.className = 'yes-button';
+  $evolutionText.className = 'evolution-text center-all';
+  $goAgain.className = 'go-again center-all';
 }
 
 function handleEvolution(event) {
   if (event.target.matches('.fire-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var flareon = getPokemonData('flareon');
+    if (data.images.flareon) {
+      $eevee.setAttribute('src', data.images.flareon);
+    } else {
+      getPokemonData('flareon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Flareon!';
+    oneMoreTime();
   }
   if (event.target.matches('.water-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var vaporeon = getPokemonData('vaporeon');
+    if (data.images.vaporeon) {
+      $eevee.setAttribute('src', data.images.vaporeon);
+    } else {
+      getPokemonData('vaporeon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Vaporeon!';
+    oneMoreTime();
   }
   if (event.target.matches('.thunder-stone')) {
     $stoneSelection.className = 'evolution-view hidden';
-    var jolteon = getPokemonData('jolteon');
+    if (data.images.jolteon) {
+      $eevee.setAttribute('src', data.images.jolteon);
+    } else {
+      getPokemonData('jolteon');
+    }
     $evolutionText.textContent = data.nickname + ' evolved into Jolteon!';
+    oneMoreTime();
   }
   $displayNickname.className = 'hidden';
   $heartContainer.className = 'hidden';
@@ -103,7 +155,7 @@ function handleEvolution(event) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  data.nickname = $form.nickname.value;
+  data.nickname = $form.elements.nickname.value;
   getStones('fire-stone');
   getStones('water-stone');
   getStones('thunder-stone');
@@ -111,10 +163,14 @@ function handleSubmit(event) {
   var nickname = 'Say hello to ' + data.nickname + '!';
   $displayNickname.textContent = nickname;
   $form.className = 'form hidden';
-  var pickStone = 'Pick one of the stones below!';
+  var pickStone = 'Pick a stone below or the heart above!';
   $displayStoneText.textContent = pickStone;
-  $heartContainer.className = 'night-heart-container';
   $heartContainer.className = 'heart-container';
+  $stoneSelection.className = 'stone-selection';
+  $time.textContent = 'Night Time';
+  $timeButton.className = 'night time-button';
+  isNight = false;
+  $displayNickname.className = 'center-all display-nickname';
 }
 
 function handleCall(event) {
